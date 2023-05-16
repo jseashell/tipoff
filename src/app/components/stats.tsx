@@ -53,9 +53,11 @@ export default function Stats(props: any) {
 
 function Stat(props: any) {
   return (
-    <div className="flex flex-col justify-center items-center">
-      <span className="w-full p-2 border-b-4 text-center">{props.name}</span>
-      <span className="w-full p-2 border-b-2 text-center font-bold">
+    <div className="w-12 flex flex-col justify-center items-center">
+      <span className="w-full py-2 border-b-4 text-center font-bold">
+        {props.name}
+      </span>
+      <span className="w-full py-2 border-b-2 text-center font-mono">
         {props.value}
       </span>
     </div>

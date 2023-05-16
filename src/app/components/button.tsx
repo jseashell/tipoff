@@ -10,7 +10,7 @@ export default function Button(props: any) {
         onClick={(e) => handleClick(e)}
         className={
           (props.width ? props.width : 'w-16') +
-          ' h-16 m-1 border-2 rounded-2xl'
+          ' h-16 border-2 rounded-2xl text-center'
         }>
         {props.children}
       </button>
