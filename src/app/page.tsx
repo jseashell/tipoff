@@ -33,7 +33,7 @@ export default function Home() {
   }, [gameplayTimerRunning]);
 
   return (
-    <main className="min-w-screen min-h-screen flex flex-col items-center justify-center">
+    <main className="w-full h-full flex flex-col items-center justify-center">
       <Stats
         data={{
           pts: pts,
