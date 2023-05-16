@@ -3,6 +3,7 @@ import Button from './button';
 
 export default function ControlPanel(props) {
   const [time, setTime] = useState('');
+  const [gameplayTimerColor, setGameplayTimerColor] = useState('bg-green-500');
 
   useEffect(() => {
     const minutes = Math.floor(props.state.millis / 60000);
@@ -78,9 +79,13 @@ export default function ControlPanel(props) {
 
   const toggleGameplayTimerRunning = (e) => {
     e?.preventDefault();
-    props.state.setGameplayTimerRunning(
-      (gameplayTimerRunning) => !gameplayTimerRunning
-    );
+
+    props.state.setGameplayTimerRunning((gameplayTimerRunning) => {
+      setGameplayTimerColor(
+        gameplayTimerRunning ? 'bg-green-500' : 'bg-red-500'
+      );
+      return !gameplayTimerRunning;
+    });
     // do not reset the seconds count
   };
 
@@ -132,7 +137,9 @@ export default function ControlPanel(props) {
       </PlusButton>
       <button
         onClick={(e) => toggleGameplayTimerRunning(e)}
-        className="w-40 h-16 m-2 border-2 rounded-2xl col-span-2">
+        className={
+          gameplayTimerColor + ' w-40 h-16 m-2 border-2 rounded-2xl col-span-2'
+        }>
         {!props.state.gameplayTimerRunning && 'Start'}
         {props.state.gameplayTimerRunning && 'Stop'}
         <br />
